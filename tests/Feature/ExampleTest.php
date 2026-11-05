@@ -1,0 +1,19 @@
+<?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class ExampleTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function test_returns_a_successful_response()
+    {
+        $this->get(route('home'))
+            ->assertRedirect('/products');
+
+        $this->get(route('products.index'))->assertOk();
+    }
+}
